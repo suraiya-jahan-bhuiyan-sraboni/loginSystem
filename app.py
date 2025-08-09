@@ -40,6 +40,7 @@ def register():
 
     return jsonify({"message": "User registered successfully"}), 201
 
+
 @app.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
@@ -47,18 +48,10 @@ def login():
     password = data.get('password')
 
     user = users_collection.find_one({"email": email})
-    if not user:
+    if not user or not bcrypt.check_password_hash(user['password'], password):
         return jsonify({"error": "Invalid email or password"}), 401
 
-    if bcrypt.check_password_hash(user['password'], password):
-        token = jwt.encode({
-            'email': email,
-            'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=1)
-        }, app.config['SECRET_KEY'], algorithm='HS256')
-
-        return jsonify({"token": token}), 200
-
-    return jsonify({"error": "Invalid email or password"}), 401
+    return jsonify({"message": "Login successful"}), 200
 
 
 @app.route('/')
