@@ -28,7 +28,7 @@ A simple REST API for user login and registration using Flask and MongoDB.
 
 ```bash
 git clone https://github.com/suraiya-jahan-bhuiyan-sraboni/loginSystem.git
-cd loginSystems
+cd loginSystem
 ````
 
 ### 2. Install dependencies
@@ -112,4 +112,5 @@ The API will be available at `http://127.0.0.1:5000/`
   "message": "Invalid credentials"
 }
 ```
+
 
