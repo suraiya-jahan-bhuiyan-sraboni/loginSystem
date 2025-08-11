@@ -9,7 +9,7 @@ A simple REST API for user login and registration using Flask and MongoDB.
 - User registration with email and password  
 - User login with email and password  
 - Passwords securely hashed with bcrypt  
-- MongoDB as the database backend (Atlas or local)  
+- MongoDB as the database backend (local)  
 - Simple and clean API design
 
 ---
@@ -17,7 +17,7 @@ A simple REST API for user login and registration using Flask and MongoDB.
 ## Prerequisites
 
 - Python 3.10 or higher  
-- MongoDB Atlas account or local MongoDB server  
+- local MongoDB server (MongoDB Compass)  
 - Git (optional, for cloning repository)
 
 ---
@@ -42,11 +42,11 @@ pip install -r requirements.txt
 Create a `.env` file in the project root:
 
 ```env
-MONGO_URI=your_mongodb_connection_string
+MONGO_URI=mongodb://localhost:27017/your_database_name
 SECRET_KEY=your_secret_key_here
 ```
 
-* Use your MongoDB Atlas connection string or local MongoDB URI for `MONGO_URI`.
+* Use your local MongoDB connection strings URI for `MONGO_URI`.
 * `SECRET_KEY` can be any random string (used for Flask session security if needed).
 
 ### 4. Run the application
@@ -112,5 +112,6 @@ The API will be available at `http://127.0.0.1:5000/`
   "message": "Invalid credentials"
 }
 ```
+
 
 
